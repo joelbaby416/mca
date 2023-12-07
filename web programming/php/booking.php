@@ -28,7 +28,7 @@ $conn->close();
 <title>user register</title>
 </head>
 <body>
-<h2>student registration form</h2>
+<h2>Airline Ticket Booking</h2>
 <form method="post">
 	name:<input type="text" name="n" required><br><br>
 	destination:<input type="text" name="de" required><br><br>
