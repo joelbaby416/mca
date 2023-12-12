@@ -1,0 +1,63 @@
+1:Make Set
+2:Display set Representatives
+3:Union
+4:Find Set
+5:Exit
+Enter your choice : 1
+Enter element : 1
+
+
+1:Make Set
+2:Display set Representatives
+3:Union
+4:Find Set
+5:Exit
+Enter your choice : 1
+Enter element : 2
+
+
+1:Make Set
+2:Display set Representatives
+3:Union
+4:Find Set
+5:Exit
+Enter your choice : 1
+Enter element : 3
+
+
+1:Make Set
+2:Display set Representatives
+3:Union
+4:Find Set
+5:Exit
+Enter your choice : 2
+The sets are
+1 2 3 
+
+1:Make Set
+2:Display set Representatives
+3:Union
+4:Find Set
+5:Exit
+Enter your choice : 3
+enter the two sets to union
+Enter first set : 1
+Enter second set : 3
+
+
+1:Make Set
+2:Display set Representatives
+3:Union
+4:Find Set
+5:Exit
+Enter your choice : 2
+The sets are
+1 2 
+
+1:Make Set
+2:Display set Representatives
+3:Union
+4:Find Set
+5:Exit
+Enter your choice : 5
+

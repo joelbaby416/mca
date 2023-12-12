@@ -1,0 +1,118 @@
+1:Insert at beginning
+2:Insert at last
+3:Insert at position
+4:Delete from beginning
+5:Delete from last
+6:Delete from position
+7:Search
+8:Display
+9:Exit
+Enter your choice : 1
+
+Enter value : 3
+
+
+1:Insert at beginning
+2:Insert at last
+3:Insert at position
+4:Delete from beginning
+5:Delete from last
+6:Delete from position
+7:Search
+8:Display
+9:Exit
+Enter your choice : 1
+
+Enter value : 5
+
+
+1:Insert at beginning
+2:Insert at last
+3:Insert at position
+4:Delete from beginning
+5:Delete from last
+6:Delete from position
+7:Search
+8:Display
+9:Exit
+Enter your choice : 2
+
+Enter value : 9
+
+
+1:Insert at beginning
+2:Insert at last
+3:Insert at position
+4:Delete from beginning
+5:Delete from last
+6:Delete from position
+7:Search
+8:Display
+9:Exit
+Enter your choice : 8
+5-> 3-> 9-> null
+
+1:Insert at beginning
+2:Insert at last
+3:Insert at position
+4:Delete from beginning
+5:Delete from last
+6:Delete from position
+7:Search
+8:Display
+9:Exit
+Enter your choice : 3
+
+Enter value : 7
+
+Enter the position : 1
+
+
+1:Insert at beginning
+2:Insert at last
+3:Insert at position
+4:Delete from beginning
+5:Delete from last
+6:Delete from position
+7:Search
+8:Display
+9:Exit
+Enter your choice : 8
+7-> 5-> 3-> 9-> null
+
+1:Insert at beginning
+2:Insert at last
+3:Insert at position
+4:Delete from beginning
+5:Delete from last
+6:Delete from position
+7:Search
+8:Display
+9:Exit
+Enter your choice : 4
+
+7 deleted
+
+1:Insert at beginning
+2:Insert at last
+3:Insert at position
+4:Delete from beginning
+5:Delete from last
+6:Delete from position
+7:Search
+8:Display
+9:Exit
+Enter your choice : 8
+5-> 3-> 9-> null
+
+1:Insert at beginning
+2:Insert at last
+3:Insert at position
+4:Delete from beginning
+5:Delete from last
+6:Delete from position
+7:Search
+8:Display
+9:Exit
+Enter your choice : 9
+

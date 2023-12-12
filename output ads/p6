@@ -1,0 +1,151 @@
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 1
+
+Enter a number : 15
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 2
+
+Enter a number : 1
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 2
+
+Enter a number : 2
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 2
+
+Enter a number : 5
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 2
+
+Enter a number : 4
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 4
+
+..................................
+1 ->2 ->4 ->5 ->15 ->
+..................................
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 5
+
+..................................
+15 ->1 ->2 ->5 ->4 ->
+..................................
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 6
+
+..................................
+4 ->5 ->2 ->1 ->15 ->
+..................................
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 3
+
+Enter a number : 2
+
+FOUND!
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 7
+
+Enter a number to be deleted : 2
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 4
+
+..................................
+1 ->4 ->5 ->15 ->
+..................................
+
+1)Create Root Node 
+2)Insert Node
+3)Search
+4)inorderTraversal 
+5)preorderTraversal 
+6)postorderTraversal 
+7)Delete 
+8)Quiet 
+Choose Option :: 8

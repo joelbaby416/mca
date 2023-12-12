@@ -1,0 +1,63 @@
+1:Push
+2:Pop
+3:Linear search
+4:Display
+5:Exit
+Enter your choice : 1
+
+Enter the value : 20
+
+
+1:Push
+2:Pop
+3:Linear search
+4:Display
+5:Exit
+Enter your choice : 1
+
+Enter the value : 30
+
+
+1:Push
+2:Pop
+3:Linear search
+4:Display
+5:Exit
+Enter your choice : 4
+the list is
+ 30 --> 20 -->
+
+1:Push
+2:Pop
+3:Linear search
+4:Display
+5:Exit
+Enter your choice : 3
+
+Enter element : 20
+
+Item found at position 2
+
+1:Push
+2:Pop
+3:Linear search
+4:Display
+5:Exit
+Enter your choice : 2
+Element popped - 30
+
+1:Push
+2:Pop
+3:Linear search
+4:Display
+5:Exit
+Enter your choice : 4
+the list is
+ 20 -->
+
+1:Push
+2:Pop
+3:Linear search
+4:Display
+5:Exit
+Enter your choice : 5

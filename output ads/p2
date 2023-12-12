@@ -1,0 +1,122 @@
+Enter the size of the queue:3
+
+
+1:insertion
+
+2:Deletion
+
+3:Display
+
+4:search
+
+5:exit
+
+enter your choice
+1
+enter the element to insert2
+
+
+1:insertion
+
+2:Deletion
+
+3:Display
+
+4:search
+
+5:exit
+
+enter your choice
+1
+enter the element to insert5
+
+
+1:insertion
+
+2:Deletion
+
+3:Display
+
+4:search
+
+5:exit
+
+enter your choice
+1
+enter the element to insert7
+
+
+1:insertion
+
+2:Deletion
+
+3:Display
+
+4:search
+
+5:exit
+
+enter your choice
+3
+front=0
+Rear=2
+257
+
+1:insertion
+
+2:Deletion
+
+3:Display
+
+4:search
+
+5:exit
+
+enter your choice
+2
+Deleted element 2
+
+1:insertion
+
+2:Deletion
+
+3:Display
+
+4:search
+
+5:exit
+
+enter your choice
+4
+Enter the element to search5
+Element found at position 1
+
+1:insertion
+
+2:Deletion
+
+3:Display
+
+4:search
+
+5:exit
+
+enter your choice
+3
+front=1
+Rear=2
+57
+
+1:insertion
+
+2:Deletion
+
+3:Display
+
+4:search
+
+5:exit
+
+enter your choice
+5
+
