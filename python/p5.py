@@ -1,9 +1,6 @@
-names=raw_input("enter a list of first names:")
-
-count= 0
-for name in names:
- if 'a' in name:
- 
- 			count += 1
- 			
-print(count)
+def replace_first_character(string):
+     first_character=string[0]
+     rest_of_string=string[1:]
+     new_string=first_character+rest_of_string.replace(first_character,'$')
+     return new_string
+print(replace_first_character("Hi hello happy"))
