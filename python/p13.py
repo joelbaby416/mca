@@ -1,5 +1,5 @@
-n=int(input("Enter a interger:"))
-nn=int(str(n)*2)
-nnn=int(str(n)*3)
-result=n+nn+nnn
-print("Result:",result)
+num=int(input("enter a number"))
+factorial=1
+for i in range(1,num+1):
+	factorial=factorial*i
+print("the factorial of",num,"is",factorial)
