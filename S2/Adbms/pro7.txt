@@ -1,0 +1,79 @@
+mysql> use joel;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> create table employeess(emp_id int,emp_name varchar(20),emp_age int,city varchar(20),income int(10));
+Query OK, 0 rows affected, 1 warning (1.82 sec)
+
+mysql> desc employeess;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| emp_id   | int         | YES  |     | NULL    |       |
+| emp_name | varchar(20) | YES  |     | NULL    |       |
+| emp_age  | int         | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| income   | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into employeess values(101,'peter',32,'newyork',200000);
+Query OK, 1 row affected (0.09 sec)
+
+
+mysql> select * from employeess;
++--------+----------+---------+---------+--------+
+| emp_id | emp_name | emp_age | city    | income |
++--------+----------+---------+---------+--------+
+|    101 | peter    |      32 | newyork | 200000 |
++--------+----------+---------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> insert into employeess values(102,'mark',22,'california',300000),(103,'obama',35,'california',1000000),(104,'donald',34,'arizona',5000000),(105,'adam',33,'alaska',350000);
+Query OK, 4 rows affected (0.17 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from employeess;
++--------+----------+---------+------------+---------+
+| emp_id | emp_name | emp_age | city       | income  |
++--------+----------+---------+------------+---------+
+|    101 | peter    |      32 | newyork    |  200000 |
+|    102 | mark     |      22 | california |  300000 |
+|    103 | obama    |      35 | california | 1000000 |
+|    104 | donald   |      34 | arizona    | 5000000 |
+|    105 | adam     |      33 | alaska     |  350000 |
++--------+----------+---------+------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select emp_name,city,income from employeess where emp_id in(select emp_id from employeess);
++----------+------------+---------+
+| emp_name | city       | income  |
++----------+------------+---------+
+| peter    | newyork    |  200000 |
+| mark     | california |  300000 |
+| obama    | california | 1000000 |
+| donald   | arizona    | 5000000 |
+| adam     | alaska     |  350000 |
++----------+------------+---------+
+5 rows in set (0.02 sec)
+
+
+
+mysql>  select * from employeess where emp_id in (select emp_id from employeess where income>350000);
++--------+----------+---------+------------+---------+
+| emp_id | emp_name | emp_age | city       | income  |
++--------+----------+---------+------------+---------+
+|    103 | obama    |      35 | california | 1000000 |
+|    104 | donald   |      34 | arizona    | 5000000 |
++--------+----------+---------+------------+---------+
+2 rows in set (0.01 sec)
+
+mysql> select emp_name,city,income from  employeess where income=(select max(income) from employeess);
++----------+---------+---------+
+| emp_name | city    | income  |
++----------+---------+---------+
+| donald   | arizona | 5000000 |
++----------+---------+---------+
+1 row in set (0.00 sec)
+
