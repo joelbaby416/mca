@@ -1,0 +1,69 @@
+mysql> create database joel;
+Query OK, 1 row affected (0.12 sec)
+
+mysql> use joel;
+Database changed
+mysql> create table student(rollno int(10), name varchar(20), course varchar(20));
+Query OK, 0 rows affected, 1 warning (0.54 sec)
+
+mysql> insert into student values(1,'Ammu','MCA');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into student values(2,'Amal','MCA');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from student;
++--------+------+--------+
+| rollno | name | course |
++--------+------+--------+
+|      1 | Ammu | MCA    |
+|      2 | Amal | MCA    |
++--------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> start transaction;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> savepoint a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into student values(3,'Anju','MCA');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student;
++--------+------+--------+
+| rollno | name | course |
++--------+------+--------+
+|      1 | Ammu | MCA    |
+|      2 | Amal | MCA    |
+|      3 | Anju | MCA    |
++--------+------+--------+
+3 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from student;
++--------+------+--------+
+| rollno | name | course |
++--------+------+--------+
+|      1 | Ammu | MCA    |
+|      2 | Amal | MCA    |
++--------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into student values(4,'Ann','MCA');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from student;
++--------+------+--------+
+| rollno | name | course |
++--------+------+--------+
+|      1 | Ammu | MCA    |
+|      2 | Amal | MCA    |
+|      4 | Ann  | MCA    |
++--------+------+--------+
+3 rows in set (0.00 sec)
