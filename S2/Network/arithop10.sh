@@ -23,7 +23,7 @@ div(){
   num1=$1
   num2=$2
   res=$((num1/num2))
-  echo "$num1 / $num2 = $res"
+  echo "$num1 / $num2 = "$(echo "scale=2; $num1 / $num2" |bc )
 }
 
 
