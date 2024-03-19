@@ -1,0 +1,273 @@
+mysql> use joel;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++----------------+
+| Tables_in_joel |
++----------------+
+| customer       |
+| elitsalesmen   |
+| employee       |
+| employeess     |
+| gradecount     |
+| newyorkstaff   |
+| pro_order      |
+| salesmen       |
+| sorder         |
+| student        |
+| totalforday    |
++----------------+
+11 rows in set (0.00 sec)
+
+mysql> create table sailors(sid int primary key,sname varchar(10),rating int,age float(10));
+Query OK, 0 rows affected (2.94 sec)
+
+mysql> create table boats(bid int primary key,bname varchar(10),color
+varchar (10));
+Query OK, 0 rows affected (0.63 sec)
+
+
+mysql> create table reserves(sid int ,bid int,day date);
+Query OK, 0 rows affected (0.62 sec)
+
+mysql> alter table reserves add foreign key (bid) references boats (bid);
+Query OK, 0 rows affected (2.15 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table reserves add foreign key (sid) references sailors (sid);
+Query OK, 0 rows affected (2.70 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc reserves;
++-------+------+------+-----+---------+-------+
+| Field | Type | Null | Key | Default | Extra |
++-------+------+------+-----+---------+-------+
+| sid   | int  | YES  | MUL | NULL    |       |
+| bid   | int  | YES  | MUL | NULL    |       |
+| day   | date | YES  |     | NULL    |       |
++-------+------+------+-----+---------+-------+
+3 rows in set (0.55 sec)
+
+mysql> insert into sailors value(22,'Dustin',7,45.0);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into sailors value(29,'Brutus',1,33.0);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into sailors value(31,'Lubber',8,55.5);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into sailors value(32,'Andy',8,25.5);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into sailors value(58,'Rusty',10,35.);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into sailors value(64,'Horatio',7,35.0);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into sailors value(71,'Zorba',10,16.0);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into sailors value(74,'Horatio',9,35.0);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into sailors value(85,'Art',3,25.5);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into sailors value(95,'Bob',3,63.5);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select * from sailors;
++-----+---------+--------+------+
+| sid | sname   | rating | age  |
++-----+---------+--------+------+
+|  22 | Dustin  |      7 |   45 |
+|  29 | Brutus  |      1 |   33 |
+|  31 | Lubber  |      8 | 55.5 |
+|  32 | Andy    |      8 | 25.5 |
+|  58 | Rusty   |     10 |   35 |
+|  64 | Horatio |      7 |   35 |
+|  71 | Zorba   |     10 |   16 |
+|  74 | Horatio |      9 |   35 |
+|  85 | Art     |      3 | 25.5 |
+|  95 | Bob     |      3 | 63.5 |
++-----+---------+--------+------+
+10 rows in set (0.02 sec)
+
+mysql> insert into boats value(101,'Interlake','blue');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into boats value(102,'Interlake','red');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into boats value(103,'clipper','green');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into boats value(104,'Marine','red');
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into reserves value(22,101,'1998/10/10');
+Query OK, 1 row affected, 1 warning (0.08 sec)
+
+mysql> insert into reserves value(22,102,'1998/10/10');
+Query OK, 1 row affected, 1 warning (0.09 sec)
+
+mysql> insert into reserves value(22,103,'1998/8/10');
+Query OK, 1 row affected, 1 warning (0.07 sec)
+
+mysql> insert into reserves value(22,104,'1998/7/10');
+Query OK, 1 row affected, 1 warning (0.13 sec)
+
+mysql> insert into reserves value(31,102,'1998/10/11');
+Query OK, 1 row affected, 1 warning (0.07 sec)
+
+mysql> insert into reserves value(31,103,'1998/6/11');
+Query OK, 1 row affected, 1 warning (0.10 sec)
+
+mysql> insert into reserves value(31,104,'1998/12/11');
+Query OK, 1 row affected, 1 warning (0.08 sec)
+
+mysql> insert into reserves value(64,101,'1998/5/9');
+Query OK, 1 row affected, 1 warning (0.09 sec)
+
+mysql> insert into reserves value(64,102,'1998/8/9');
+Query OK, 1 row affected, 1 warning (0.14 sec)
+
+mysql> insert into reserves value(74,103,'1998/8/9');
+Query OK, 1 row affected, 1 warning (0.08 sec)
+
+mysql> select * from reserves;
++------+------+------------+
+| sid  | bid  | day        |
++------+------+------------+
+|   22 |  101 | 1998-10-10 |
+|   22 |  102 | 1998-10-10 |
+|   22 |  103 | 1998-08-10 |
+|   22 |  104 | 1998-07-10 |
+|   31 |  102 | 1998-10-11 |
+|   31 |  103 | 1998-06-11 |
+|   31 |  104 | 1998-12-11 |
+|   64 |  101 | 1998-05-09 |
+|   64 |  102 | 1998-08-09 |
+|   74 |  103 | 1998-08-09 |
++------+------+------------+
+10 rows in set (0.05 sec)
+
+mysql> SELECT COUNT(DISTINCT color) FROM boats;
++-----------------------+
+| COUNT(DISTINCT color) |
++-----------------------+
+|                     3 |
++-----------------------+
+1 row in set (0.13 sec)
+
+mysql> select * from sailors where sid in (select sid from reserves where bid=101);
++-----+---------+--------+------+
+| sid | sname   | rating | age  |
++-----+---------+--------+------+
+|  22 | Dustin  |      7 |   45 |
+|  64 | Horatio |      7 |   35 |
++-----+---------+--------+------+
+2 rows in set (0.05 sec)
+
+
+mysql> SELECT sname FROM sailors S, reserves R WHERE S.sid = R.sid;
++---------+
+| sname   |
++---------+
+| Dustin  |
+| Dustin  |
+| Dustin  |
+| Dustin  |
+| Lubber  |
+| Lubber  |
+| Lubber  |
+| Horatio |
+| Horatio |
+| Horatio |
++---------+
+10 rows in set (0.00 sec)
+
+
+mysql> SELECT b.bname,s.sname FROM boats b INNER JOIN reserves r ON b.bid=r.bid INNER JOIN sailors s ON s.sid=r.sid;
++-----------+---------+
+| bname     | sname   |
++-----------+---------+
+| Interlake | Dustin  |
+| Interlake | Horatio |
+| Interlake | Dustin  |
+| Interlake | Lubber  |
+| Interlake | Horatio |
+| clipper   | Dustin  |
+| clipper   | Lubber  |
+| clipper   | Horatio |
+| Marine    | Dustin  |
+| Marine    | Lubber  |
++-----------+---------+
+10 rows in set (0.00 sec)
+
+mysql> select sname,age from Sailors where sid in(select sid from Reserves,Boats where Reserves.bid=Boats.bid and color='red')order by age;
++---------+------+
+| sname   | age  |
++---------+------+
+| Horatio |   35 |
+| Dustin  |   45 |
+| Lubber  |   55 |
++---------+------+
+3 rows in set (0.00 sec)
+
+mysql> select distinct S.sid,S.sname from Sailors S,Reserves R1,Reserves R2 where S.sid=R1.sid and S.sid=R2.sid
+and R1.day=R2.day and R1.bid<>R2.bid;
++-----+--------+
+| sid | sname  |
++-----+--------+
+|  22 | Dustin |
++-----+--------+
+1 row in set (0.00 sec)
+
+mysql> select R.sid from Boats B,Reserves R where R.bid=B.bid and B.color='red'union select R2.sid from Boats B2,Reserves R2 where R2.bid=B2.bid and B2.color='green';
++------+
+| sid  |
++------+
+|   22 |
+|   31 |
+|   64 |
+|   74 |
++------+
+4 rows in set (0.00 sec)
+
+mysql>  select s.sname,b.bname from Boats b inner join Reserves r on b.bid=r.bid inner join Sailors s on s.sid=r.sid;
++---------+-----------+
+| sname   | bname     |
++---------+-----------+
+| Dustin  | Interlake |
+| Dustin  | Interlake |
+| Dustin  | Clipper   |
+| Dustin  | marine    |
+| Lubber  | Interlake |
+| Lubber  | Clipper   |
+| Lubber  | marine    |
+| Horatio | Interlake |
+| Horatio | Interlake |
+| Horatio | Clipper   |
++---------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> select S.sname from Sailors S where not exists((select B.bid from Boats B)except(select R.bid from Reserves R where R.sid=S.sid));
+
+mysql> select S.sname from Sailors S where not exists(select B.bid from Boats B where not exists(select R.bid from Reserves R where R.sid=S.sid and R.bid=B.bid));
++--------+
+| sname  |
++--------+
+| Dustin |
++--------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
