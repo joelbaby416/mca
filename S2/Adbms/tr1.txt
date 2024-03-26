@@ -1,0 +1,84 @@
+mysql> CREATE TABLE employees (
+    -> employee_id INT PRIMARY KEY,
+    -> first_name VARCHAR(50),
+    -> last_name VARCHAR(50),
+    -> salary DECIMAL(10, 2)
+    -> );
+Query OK, 0 rows affected (0.96 sec)
+
+mysql> CREATE TABLE audit_log (
+    -> log_id INT PRIMARY KEY AUTO_INCREMENT,
+    -> action VARCHAR(255),
+    -> timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected (0.66 sec)
+
+mysql> INSERT INTO employees (employee_id, first_name, last_name, salary)
+    -> VALUES
+    -> (1, 'John', 'Doe', 50000.00),
+    -> (2, 'Jane', 'Smith', 60000.00),
+    -> (3, 'Michael', 'Johnson', 55000.00);
+Query OK, 3 rows affected (0.15 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO audit_log (action, timestamp)
+    -> VALUES
+    -> ('New employees added', CURRENT_TIMESTAMP);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from employees;
++-------------+------------+-----------+----------+
+| employee_id | first_name | last_name | salary   |
++-------------+------------+-----------+----------+
+|           1 | John       | Doe       | 50000.00 |
+|           2 | Jane       | Smith     | 60000.00 |
+|           3 | Michael    | Johnson   | 55000.00 |
++-------------+------------+-----------+----------+
+3 rows in set (0.04 sec)
+
+mysql> select * from audit_log;
++--------+---------------------+---------------------+
+| log_id | action              | timestamp           |
++--------+---------------------+---------------------+
+|      1 | New employees added | 2024-03-26 14:13:47 |
++--------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> delimiter //
+mysql> CREATE TRIGGER after_employee_insert
+    -> AFTER INSERT ON employees
+    -> FOR EACH ROW
+    -> BEGIN
+    -> INSERT INTO audit_log (action, timestamp)
+    -> VALUES ('New employee inserted', NOW());
+    -> END //
+Query OK, 0 rows affected (0.27 sec)
+
+mysql> DELIMITER ;
+mysql> INSERT INTO employees (employee_id, first_name, last_name, salary)
+    -> VALUES (4, 'Minnu', 'Joseph', 65000.00);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select * from employees;
++-------------+------------+-----------+----------+
+| employee_id | first_name | last_name | salary   |
++-------------+------------+-----------+----------+
+|           1 | John       | Doe       | 50000.00 |
+|           2 | Jane       | Smith     | 60000.00 |
+|           3 | Michael    | Johnson   | 55000.00 |
+|           4 | Minnu      | Joseph    | 65000.00 |
++-------------+------------+-----------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select * from audit_log;
++--------+-----------------------+---------------------+
+| log_id | action                | timestamp           |
++--------+-----------------------+---------------------+
+|      1 | New employees added   | 2024-03-26 14:13:47 |
+|      2 | New employee inserted | 2024-03-26 14:16:40 |
++--------+-----------------------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+

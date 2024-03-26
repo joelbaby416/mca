@@ -1,0 +1,76 @@
+mysql> CREATE TABLE Std1 (
+    -> studentID INT PRIMARY KEY,
+    -> Name VARCHAR(20),
+    -> sub1 INT,
+    -> sub2 INT,
+    -> sub3 INT,
+    -> sub4 INT,
+    -> sub5 INT,
+    -> total INT,
+    -> per_marks INT,
+    -> grade VARCHAR(20)
+    -> );
+Query OK, 0 rows affected (0.53 sec)
+
+mysql> INSERT INTO Std1 (studentID, Name, sub1, sub2, sub3, sub4, sub5)
+    -> VALUES
+    -> (1, 'Student1', 0, 0, 0, 0, 0),
+    -> (2, 'Student2', 0, 0, 0, 0, 0);
+Query OK, 2 rows affected (0.10 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from Std1 ;
++-----------+----------+------+------+------+------+------+-------+-----------+-------+
+| studentID | Name     | sub1 | sub2 | sub3 | sub4 | sub5 | total | per_marks | grade |
++-----------+----------+------+------+------+------+------+-------+-----------+-------+
+|         1 | Student1 |    0 |    0 |    0 |    0 |    0 |  NULL |      NULL | NULL  |
+|         2 | Student2 |    0 |    0 |    0 |    0 |    0 |  NULL |      NULL | NULL  |
++-----------+----------+------+------+------+------+------+-------+-----------+-------+
+2 rows in set (0.00 sec)
+
+mysql> delimiter //
+mysql> CREATE TRIGGER std_before_update
+    -> BEFORE UPDATE ON Std1
+    -> FOR EACH ROW
+    -> BEGIN
+    -> DECLARE total_marks INT;
+    -> DECLARE per_marks INT;
+    -> DECLARE grade VARCHAR(20);
+    -> SET total_marks = NEW.sub1 + NEW.sub2 + NEW.sub3 + NEW.sub4 + NEW.sub5;
+    -> SET per_marks = total_marks / 5;
+    -> IF per_marks >= 90 THEN
+    -> SET grade = 'EXCELLENT';
+    -> ELSEIF per_marks >= 75 AND per_marks < 90 THEN
+    -> SET grade = 'VERY GOOD';
+    -> ELSEIF per_marks >= 60 AND per_marks < 75 THEN
+    -> SET grade = 'GOOD';
+    -> ELSEIF per_marks >= 40 AND per_marks < 60 THEN
+    -> SET grade = 'AVERAGE';
+    -> ELSE
+    -> SET grade = 'NOT PROMOTED';
+    -> END IF;
+    -> 
+    -> SET NEW.total = total_marks;
+    -> SET NEW.per_marks = per_marks;
+    -> SET NEW.grade = grade;
+    -> END;
+    -> //
+Query OK, 0 rows affected (0.23 sec)
+
+mysql> delimiter ;
+mysql> update Std1 set sub1 = 90,sub2=75,sub3=90,sub4=95,sub5=85 where studentID = 1;
+Query OK, 1 row affected (0.22 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Std1;
++-----------+----------+------+------+------+------+------+-------+-----------+-----------+
+| studentID | Name     | sub1 | sub2 | sub3 | sub4 | sub5 | total | per_marks | grade     |
++-----------+----------+------+------+------+------+------+-------+-----------+-----------+
+|         1 | Student1 |   90 |   75 |   90 |   95 |   85 |   435 |        87 | VERY GOOD |
+|         2 | Student2 |    0 |    0 |    0 |    0 |    0 |  NULL |      NULL | NULL      |
++-----------+----------+------+------+------+------+------+-------+-----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> 
+
+
