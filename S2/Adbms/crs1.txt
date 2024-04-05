@@ -1,0 +1,71 @@
+mysql> DELIMITER //
+mysql> CREATE PROCEDURE calculate_av_salary()
+    -> BEGIN
+    -> DECLARE cur_salary INT;
+    -> DECLARE total_salary INTEGER DEFAULT 0;
+    -> DECLARE num_rows INTEGER DEFAULT 0;
+    -> DECLARE avg_salary INTEGER DEFAULT 0;
+    -> DECLARE done BOOLEAN DEFAULT FALSE;
+    -> DECLARE salary_cursor CURSOR FOR SELECT salary FROM employees;
+    -> DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    -> OPEN salary_cursor;
+    -> fetch_loop: LOOP
+    -> FETCH salary_cursor INTO cur_salary;
+    -> IF done THEN
+    -> LEAVE fetch_loop;
+    -> END IF;
+    -> IF cur_salary IS NOT NULL THEN
+    -> SET total_salary = total_salary + cur_salary;
+    -> SET num_rows = num_rows + 1;
+    -> END IF;
+    -> END LOOP fetch_loop;
+    -> CLOSE salary_cursor;
+    -> IF num_rows > 0 THEN
+    -> SET avg_salary = total_salary / num_rows;
+    -> END IF;
+    -> SELECT avg_salary;
+    -> END //
+Query OK, 0 rows affected (0.31 sec)
+mysql> delimiter ;
+mysql> select * from students;
++----+-----------+-------+----------------------+
+| id | name      | class | email_id             |
++----+-----------+-------+----------------------+
+|  1 | Stephen   |     7 | stephen@gmail.com    |
+|  2 | Bob       |     8 | bob@gmail.com        |
+|  3 | Steven    |     9 | steven@ gmail.com    |
+|  4 | Alexandar |     8 | alexandar@ gmail.com |
++----+-----------+-------+----------------------+
+4 rows in set (0.09 sec)
+
+mysql> call calculate_av_salary();
++------------+
+| avg_salary |
++------------+
+|      57500 |
++------------+
+1 row in set (0.35 sec)
+
+Query OK, 0 rows affected (0.35 sec)
+
+mysql> select * from employees;
++-------------+------------+-----------+----------+
+| employee_id | first_name | last_name | salary   |
++-------------+------------+-----------+----------+
+|           1 | John       | Doe       | 50000.00 |
+|           2 | Jane       | Smith     | 60000.00 |
+|           3 | Michael    | Johnson   | 55000.00 |
+|           4 | Minnu      | Joseph    | 65000.00 |
++-------------+------------+-----------+----------+
+4 rows in set (0.00 sec)
+
+mysql> call calculate_av_salary();
++------------+
+| avg_salary |
++------------+
+|      57500 |
++------------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
