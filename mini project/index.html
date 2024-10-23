@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Detection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Color Detection</h1>
+        <div class="upload-section">
+            
+                <input type="file" id="uploadBtn">
+                <label for="uploadBtn"><i class="fas fa-cloud-upload-alt"></i>Upload Image</label>
+                <label id="liveFeedLabel" style="cursor:pointer;"><i class="fas fa-video"></i>Live Feed</label><br>
+                <button type="submit" class="submit-btn">Detect Color</button>
+            </form>
+        </div>
+        <div class="live-feed-section">
+            <video id="webcamFeed" autoplay></video>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
